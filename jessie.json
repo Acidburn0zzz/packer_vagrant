@@ -15,6 +15,7 @@
             "type": "shell",
             "scripts": [
                 "scripts/base.sh",
+                "scripts/custom.sh",
                 "scripts/virtualbox.sh",
                 "scripts/vagrant.sh",
                 "scripts/dep.sh",
@@ -22,6 +23,9 @@
                 "scripts/zerodisk.sh"
             ],
             "override": {
+                "qemu": {
+                    "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
+                },
                 "virtualbox-iso": {
                     "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
                 }
@@ -58,14 +62,7 @@
       "iso_url": "http://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-8.2.0-amd64-netinst.iso",
       "net_device": "virtio-net",
       "qemuargs": [
-        [
-          "-m",
-          "1024M"
-        ],
-        [
-          "-smp",
-          "4"
-        ]
+        [ "-m", "1024M" ]
       ],
       "shutdown_command": "echo '{{user `password`}}'|sudo -S shutdown -h now",
       "ssh_password": "{{user `password`}}",
