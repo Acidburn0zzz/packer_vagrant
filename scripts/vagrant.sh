@@ -5,16 +5,14 @@
 # Vagrant specific
 date > /etc/vagrant_box_build_time
 
-# Installing vagrant keys
-wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /tmp/vagrant.pub
+# Installing vagrant key for root
+mkdir -pm 700 /root/.ssh
+wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /root/.ssh/authorized_keys
+chmod 0600 /root/.ssh/authorized_keys
 
-for user in vagrant root
-do
-  mkdir -pm 700 /home/${user}/.ssh
-  chmod 0600 /home/${user}/.ssh/authorized_keys
-  cp /tmp/vagrant.pub /home/${user}/.ssh/authorized_keys
-  chown -R ${user} /home/${user}/.ssh
-done
+# Installing vagrant key for vagrant user
+cp -a /root/.ssh/ /home/vagrant/
+chown -R vagrant:vagrant /home/vagrant/.ssh
 
 # configure password-less sudo
 echo 'vagrant ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
