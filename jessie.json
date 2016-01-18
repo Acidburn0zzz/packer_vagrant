@@ -121,7 +121,7 @@
             "artifact_type": "vagrant.box",
             "metadata": {
                 "provider": "libvirt",
-                "version": "0.0.1"
+                "created_at": "{{timestamp}}"
             }
         }]
     ]
