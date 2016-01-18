@@ -7,4 +7,4 @@ sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_c
 usermod -p "$(echo vagrant | openssl passwd -1 -stdin)" root
 
 # install additional packages
-apt-get install puppet lsb-release facter
+apt-get -y install puppet lsb-release facter rsync curl
