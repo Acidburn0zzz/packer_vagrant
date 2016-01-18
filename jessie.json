@@ -27,7 +27,7 @@
                 "qemu": {
                     "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
                 },
-                "virtualbox": {
+                "virtualbox-iso": {
                     "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
                 }
             }
@@ -72,7 +72,7 @@
       "ssh_wait_timeout": "15m"
     },
       {
-            "type": "virtualbox",
+            "type": "virtualbox-iso",
             "boot_command": [
               "<esc><wait><wait>",
               "install auto <wait>",
@@ -112,7 +112,7 @@
         },
         {
             "type": "atlas",
-            "only": ["virtualbox"],
+            "only": ["virtualbox-iso"],
             "artifact": "{{user `atlas_username`}}/{{user `atlas_name`}}",
             "artifact_type": "vagrant.box",
             "metadata": {
