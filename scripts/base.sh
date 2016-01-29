@@ -4,6 +4,7 @@ perl -p -i -e 's#http://us.archive.ubuntu.com/ubuntu#http://mirror.rackspace.com
 
 # Update the box
 apt-get -y update >/dev/null
+apt-get -q -y -o \'DPkg::Options::=--force-confold\' dist-upgrade
 
 # Tweak sshd to prevent DNS resolution (speed up logins)
 echo 'UseDNS no' >> /etc/ssh/sshd_config
