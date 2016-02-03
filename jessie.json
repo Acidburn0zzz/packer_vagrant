@@ -4,6 +4,7 @@
       "vcs": true
     },
     "variables": {
+        "atlas_username": "LEAP",
         "atlas_name": "jessie",
         "disk_size": "10000",
         "password": "vagrant",
