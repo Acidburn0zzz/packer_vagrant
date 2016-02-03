@@ -4,12 +4,11 @@
       "vcs": true
     },
     "variables": {
-        "atlas_username": "varac",
         "atlas_name": "jessie",
         "disk_size": "10000",
         "password": "vagrant",
         "user": "vagrant",
-        "hostname": "varac-jessie",
+        "hostname": "leap-jessie",
         "domain": "local"
     },
     "provisioners": [
