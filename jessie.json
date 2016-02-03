@@ -10,7 +10,8 @@
         "password": "vagrant",
         "user": "vagrant",
         "hostname": "leap-jessie",
-        "domain": "local"
+        "domain": "local",
+        "boxversion": "1.0"
     },
     "provisioners": [
         {
@@ -118,7 +119,8 @@
             "artifact_type": "vagrant.box",
             "metadata": {
                 "provider": "virtualbox",
-                "created_at": "{{timestamp}}"
+                "created_at": "{{timestamp}}",
+                "version": "{{user `boxversion`}}"
             }
         },
         {
@@ -128,7 +130,8 @@
             "artifact_type": "vagrant.box",
             "metadata": {
                 "provider": "libvirt",
-                "created_at": "{{timestamp}}"
+                "created_at": "{{timestamp}}",
+                "version": "{{user `boxversion`}}"
             }
         }]
     ]
