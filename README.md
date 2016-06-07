@@ -2,8 +2,8 @@
 
 ## Currently supported
 
-- Debian Jessie (8.2)
-- qemu (working) and virtualbox (WIP)
+- Debian Jessie
+- qemu and virtualbox
 
 ## Customization
 
