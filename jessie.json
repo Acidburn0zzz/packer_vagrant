@@ -15,6 +15,16 @@
     },
     "provisioners": [
         {
+            "type": "file",
+            "source": "files/leap-archive.gpg",
+            "destination": "/etc/apt/trusted.gpg.d/leap-archive.gpg"
+        },
+        {
+            "type": "file",
+            "source": "files/leap-experimental-archive.gpg",
+            "destination": "/etc/apt/trusted.gpg.d/leap-experimental-archive.gpg"
+        },
+        {
             "type": "shell",
             "scripts": [
                 "scripts/base.sh",
