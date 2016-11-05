@@ -1,6 +1,7 @@
 #!/bin/bash
 
-perl -p -i -e 's#http://us.archive.ubuntu.com/ubuntu#http://mirror.rackspace.com/ubuntu#gi' /etc/apt/sources.list
+echo -e "deb http://deb.debian.org/debian/ jessie main\ndeb http://security.debian.org/ jessie/updates main" > /etc/apt/sources.list
+echo "deb http://deb.debian.org/debian/ jessie-backports main" > /etc/apt/sources.list.d/backports.list
 
 # Update the box
 apt-get -y update >/dev/null
