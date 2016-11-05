@@ -3,17 +3,28 @@
 ## Currently supported
 
 - Debian Jessie
-- qemu and virtualbox
+- qemu, virtualbox and lxc
 
 ## Customization
 
 - puppet, facter are pre-installed
+- Permit root ssh login with password `vagrant`
 
 ## Building locally
 
 This example builds only for the qemu provider.
 
     packer build -only=qemu jessie.json
+
+## LXC
+
+to build a lxc box, install https://github.com/fgrehm/vagrant-lxc first
+
+You need to run packer with sudo:
+
+    sudo -E packer build -only=lxc jessie.json
+
+Cache dir is at `/var/lib/lxc/packer-lxc/rootfs`.
 
 
 ### Issues

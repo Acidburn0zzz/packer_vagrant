@@ -1,2 +1,4 @@
 /packer_cache/
 /output-qemu/
+/output-vagrant/
+/output-virtualbox/

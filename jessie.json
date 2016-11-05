@@ -22,8 +22,7 @@
                 "scripts/virtualbox.sh",
                 "scripts/vagrant.sh",
                 "scripts/dep.sh",
-                "scripts/cleanup.sh",
-                "scripts/zerodisk.sh"
+                "scripts/cleanup.sh"
             ],
             "override": {
                 "qemu": {
@@ -33,9 +32,24 @@
                     "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
                 }
             }
+        },
+        {
+            "type": "shell",
+            "scripts": [ "scripts/zerodisk.sh" ],
+            "except": ["lxc"]
         }
     ],
     "builders": [
+    {
+      "type": "lxc",
+      "config_file": "lxc/debian",
+      "template_name": "debian",
+      "template_environment_vars": [
+        "MIRROR=http://deb.debian.org/debian/",
+        "SUITE=jessie"
+      ],
+      "target_runlevel": 3
+    },
     {
       "type": "qemu",
       "accelerator": "kvm",
@@ -110,7 +124,24 @@
     "post-processors": [
         [{
             "type": "vagrant",
-            "keep_input_artifact": false
+            "keep_input_artifact": false,
+            "except": ["lxc"]
+        },
+        {
+          "type": "compress",
+          "output": "output-vagrant/jessie64-lxc.box",
+          "only": ["lxc"]
+        },
+        {
+            "type": "atlas",
+            "only": ["lxc"],
+            "artifact": "{{user `atlas_username`}}/{{user `atlas_name`}}",
+            "artifact_type": "vagrant.box",
+            "metadata": {
+                "provider": "lxc",
+                "created_at": "{{timestamp}}",
+                "version": "{{user `boxversion`}}"
+            }
         },
         {
             "type": "atlas",
