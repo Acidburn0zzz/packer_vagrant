@@ -12,7 +12,8 @@ wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/key
 chmod 0600 /root/.ssh/authorized_keys
 
 # Installing vagrant key for vagrant user
-cp -a /root/.ssh/ /home/vagrant/
+getent passwd vagrant || useradd -m vagrant -s /bin/bash
+cp -a /root/.ssh /home/vagrant/
 chown -R vagrant:vagrant /home/vagrant/.ssh
 
 # configure password-less sudo
