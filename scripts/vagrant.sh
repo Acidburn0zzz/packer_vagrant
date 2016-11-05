@@ -8,7 +8,7 @@ date > /etc/vagrant_box_build_time
 # Installing vagrant key for root
 mkdir -m 0700 /root/.ssh
 chmod 0700 /root /root/.ssh
-wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /root/.ssh/authorized_keys
+wget --no-check-certificate 'https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /root/.ssh/authorized_keys
 chmod 0600 /root/.ssh/authorized_keys
 
 # Installing vagrant key for vagrant user
