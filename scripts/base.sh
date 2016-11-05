@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# setup locales
+echo 'en_US.UTF-8 UTF-8' > /etc/locale.gen
+locale-gen en_US.UTF-8
+update-locale LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Set up apt repos
 echo -e "deb http://deb.debian.org/debian/ jessie main\ndeb http://security.debian.org/ jessie/updates main" > /etc/apt/sources.list
 echo "deb http://deb.debian.org/debian/ jessie-backports main" > /etc/apt/sources.list.d/backports.list
 
