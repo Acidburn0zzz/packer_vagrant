@@ -17,13 +17,21 @@
         {
             "type": "file",
             "source": "files/leap-archive.gpg",
-            "destination": "/etc/apt/trusted.gpg.d/leap-archive.gpg"
+            "destination": "/tmp/leap-archive.gpg"
         },
         {
             "type": "file",
             "source": "files/leap-experimental-archive.gpg",
-            "destination": "/etc/apt/trusted.gpg.d/leap-experimental-archive.gpg"
+            "destination": "/tmp/leap-experimental-archive.gpg"
         },
+	{
+	   "type": "shell",
+	   "inline": [
+		"echo {{user `password`}} |  sudo -S  cp /tmp/leap-archive.gpg /etc/apt/trusted.gpg.d/leap-archive.gpg",
+		"sudo cp /tmp/leap-experimental-archive.gpg /etc/apt/trusted.gpg.d/leap-experimental-archive.gpg",
+		"sudo chown root:root /etc/apt/trusted.gpg.d/leap-archive.gpg /etc/apt/trusted.gpg.d/leap-experimental-archive.gpg"
+	   ]
+	},
         {
             "type": "shell",
             "scripts": [
