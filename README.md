@@ -16,9 +16,20 @@ This example builds only for the qemu provider.
 
     packer build -only=qemu jessie.json
 
+## Connect to VNC
+
+While building you can connect to the box using
+
+    vncviewer -Shared localhost:PORT
+
+just make sure to provide the PORT shown on the console shown like this:
+
+    ==> qemu: Found available VNC port: 5922
+
+
 ## LXC
 
-to build a lxc box, install https://github.com/fgrehm/vagrant-lxc first
+To build a lxc box, install https://github.com/fgrehm/vagrant-lxc first
 
 You need to run packer with sudo:
 
