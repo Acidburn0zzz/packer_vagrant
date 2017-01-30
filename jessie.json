@@ -11,7 +11,7 @@
         "user": "vagrant",
         "hostname": "leap-jessie",
         "domain": "local",
-        "boxversion": "1.2.6"
+        "boxversion": "1.2.7"
     },
     "provisioners": [
         {

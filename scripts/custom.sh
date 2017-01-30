@@ -6,7 +6,7 @@ sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_c
 # install additional packages
 # LEAP people like some of these: see also #6898 and https://github.com/leapcode/leap_cli/pull/17
 
-apt-get -y install leap-archive-keyring puppet lsb-release facter rsync curl bash-completion wget sudo unzip vim tmux ntp git rdoc
+apt-get -y install leap-archive-keyring puppet lsb-release facter rsync curl bash-completion wget sudo unzip vim tmux ntp git rdoc sshfs
 
 # Don't use client locales
 # https://stackoverflow.com/questions/29609371/how-do-not-pass-locale-through-ssh
